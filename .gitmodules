@@ -1,0 +1,6 @@
+[submodule "VEREDAS-Core"]
+	path = VEREDAS-Core
+	url = https://github.com/sertaodigitalorg/VEREDAS-Core.git
+[submodule "VEREDAS-Edge"]
+	path = VEREDAS-Edge
+	url = https://github.com/sertaodigitalorg/VEREDAS-Edge.git
