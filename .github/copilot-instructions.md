@@ -23,3 +23,10 @@
 - Core main database is PostgreSQL in Docker.
 - Edge embedded database is SQLite in the local API container.
 - Keep shared operational knowledge in `.github/agents` and `.github/skills` so future work stays consistent.
+
+## Shared Rules Governance
+
+- Any rule, convention, or workflow that should apply to all developers must be added first to `.github/copilot-instructions.md`.
+- Custom agents in `.github/agents` and skills in `.github/skills` must keep only their task-specific guidance and inherit common product rules from this shared file.
+- When a new common rule is introduced, update the relevant agent or skill only if its description, workflow, or constraints must explicitly reflect that shared rule for discovery or execution.
+- Avoid duplicating the same global rule in multiple files unless the repetition is necessary to prevent operational mistakes in a specialized workflow.

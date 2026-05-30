@@ -19,6 +19,6 @@ Definir a visao integrada do VEREDAS como workspace de desenvolvimento, operacao
 
 ## Onde documentar cada assunto
 
-- temas gerais do ecossistema: nesta pasta `docs/`;
-- regras e fluxos especificos do Core: [../../VEREDAS-Core/docs/README.md](../../VEREDAS-Core/docs/README.md);
-- regras e fluxos especificos do Edge: [../../VEREDAS-Edge/docs/README.md](../../VEREDAS-Edge/docs/README.md).
+- temas gerais do ecossistema: no [README principal do workspace](../README.md);
+- regras e fluxos especificos do Core: [VEREDAS-Core/docs/README.md](https://github.com/sertaodigitalorg/VEREDAS-Core/blob/main/docs/README.md);
+- regras e fluxos especificos do Edge: [VEREDAS-Edge/docs/README.md](https://github.com/sertaodigitalorg/VEREDAS-Edge/blob/main/docs/README.md).

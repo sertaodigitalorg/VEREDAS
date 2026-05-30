@@ -22,5 +22,5 @@ Testar a jornada completa do transporte escolar no contexto geral do VEREDAS, do
 
 ## Onde aprofundar
 
-- detalhamento do Core: [../../VEREDAS-Core/docs/modulos/cenarios-reais-teste.md](../../VEREDAS-Core/docs/modulos/cenarios-reais-teste.md)
-- detalhamento do Edge: [../../VEREDAS-Edge/docs/operacao/cenarios-reais-teste.md](../../VEREDAS-Edge/docs/operacao/cenarios-reais-teste.md)
+- detalhamento do Core: [VEREDAS-Core/docs/modulos/cenarios-reais-teste.md](https://github.com/sertaodigitalorg/VEREDAS-Core/blob/main/docs/modulos/cenarios-reais-teste.md)
+- detalhamento do Edge: [VEREDAS-Edge/docs/operacao/cenarios-reais-teste.md](https://github.com/sertaodigitalorg/VEREDAS-Edge/blob/main/docs/operacao/cenarios-reais-teste.md)

@@ -26,5 +26,5 @@ Use na raiz `c:/VEREDAS`:
 
 ## Referencias especificas
 
-- Core: [../../VEREDAS-Core/README.md](../../VEREDAS-Core/README.md)
-- Edge: [../../VEREDAS-Edge/README.md](../../VEREDAS-Edge/README.md)
+- Core: [VEREDAS-Core/README.md](https://github.com/sertaodigitalorg/VEREDAS-Core/blob/main/README.md)
+- Edge: [VEREDAS-Edge/README.md](https://github.com/sertaodigitalorg/VEREDAS-Edge/blob/main/README.md)

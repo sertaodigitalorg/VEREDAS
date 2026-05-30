@@ -36,12 +36,13 @@ O vinculo recomendado entre eles e por `git submodule`, nao por fork.
 
 ## Documentacao
 
-- arquitetura integrada do workspace: [docs/arquitetura/workspace-geral.md](docs/arquitetura/workspace-geral.md)
-- operacao integrada das stacks: [docs/operacao/README.md](docs/operacao/README.md)
-- manual do usuario geral: [docs/manual-usuario/README.md](docs/manual-usuario/README.md)
-- cenarios de teste integrados: [docs/cenarios-teste/README.md](docs/cenarios-teste/README.md)
-- Core: [VEREDAS-Core/docs/README.md](VEREDAS-Core/docs/README.md)
-- Edge: [VEREDAS-Edge/docs/README.md](VEREDAS-Edge/docs/README.md)
+- a documentacao compartilhada do workspace fica centralizada diretamente em `docs/`, sem indices intermediarios
+- arquitetura integrada do workspace: [docs/arquitetura-geral.md](docs/arquitetura-geral.md)
+- operacao integrada das stacks: [docs/operacao.md](docs/operacao.md)
+- manual do usuario geral: [docs/manual-usuario.md](docs/manual-usuario.md)
+- cenarios de teste integrados: [docs/cenarios-teste.md](docs/cenarios-teste.md)
+- Core: [VEREDAS-Core/docs/README.md](https://github.com/sertaodigitalorg/VEREDAS-Core/blob/main/docs/README.md)
+- Edge: [VEREDAS-Edge/docs/README.md](https://github.com/sertaodigitalorg/VEREDAS-Edge/blob/main/docs/README.md)
 
 Esta documentacao compartilhada cobre o que vale para o ecossistema como um todo: arquitetura integrada, operacao das duas stacks, manual do usuario em nivel de plataforma e cenarios de teste que atravessam Core e Edge.
 

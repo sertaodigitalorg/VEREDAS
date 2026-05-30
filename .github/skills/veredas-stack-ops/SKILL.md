@@ -7,6 +7,8 @@ argument-hint: 'Describe the stack task, for example: subir core, validar edge, 
 
 # VEREDAS Stack Operations
 
+This skill inherits the common workspace standards from `.github/copilot-instructions.md` and adds only stack-operation guidance.
+
 ## When To Use
 
 - Start, stop, or inspect the Core stack.

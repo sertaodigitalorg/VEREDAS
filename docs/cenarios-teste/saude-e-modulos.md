@@ -20,5 +20,5 @@ Concentrar os cenarios gerais que cruzam cadastro central, despacho operacional,
 
 ## Onde aprofundar
 
-- Core: [../../VEREDAS-Core/docs/modulos/cenarios-reais-teste.md](../../VEREDAS-Core/docs/modulos/cenarios-reais-teste.md)
-- Edge: [../../VEREDAS-Edge/docs/operacao/cenarios-reais-teste.md](../../VEREDAS-Edge/docs/operacao/cenarios-reais-teste.md)
+- Core: [VEREDAS-Core/docs/modulos/cenarios-reais-teste.md](https://github.com/sertaodigitalorg/VEREDAS-Core/blob/main/docs/modulos/cenarios-reais-teste.md)
+- Edge: [VEREDAS-Edge/docs/operacao/cenarios-reais-teste.md](https://github.com/sertaodigitalorg/VEREDAS-Edge/blob/main/docs/operacao/cenarios-reais-teste.md)

@@ -7,6 +7,8 @@ argument-hint: 'Describe the symptom, for example: fila presa no edge, sync_even
 
 # VEREDAS Sync Diagnostics
 
+This skill inherits the common workspace standards from `.github/copilot-instructions.md` and adds only sync-diagnostics guidance.
+
 ## When To Use
 
 - The Edge outbox is growing and events are not reaching the Core.
