@@ -36,11 +36,14 @@ O vinculo recomendado entre eles e por `git submodule`, nao por fork.
 
 ## Documentacao
 
-- geral do workspace: [docs/README.md](docs/README.md)
+- arquitetura integrada do workspace: [docs/arquitetura/workspace-geral.md](docs/arquitetura/workspace-geral.md)
+- operacao integrada das stacks: [docs/operacao/README.md](docs/operacao/README.md)
 - manual do usuario geral: [docs/manual-usuario/README.md](docs/manual-usuario/README.md)
 - cenarios de teste integrados: [docs/cenarios-teste/README.md](docs/cenarios-teste/README.md)
 - Core: [VEREDAS-Core/docs/README.md](VEREDAS-Core/docs/README.md)
 - Edge: [VEREDAS-Edge/docs/README.md](VEREDAS-Edge/docs/README.md)
+
+Esta documentacao compartilhada cobre o que vale para o ecossistema como um todo: arquitetura integrada, operacao das duas stacks, manual do usuario em nivel de plataforma e cenarios de teste que atravessam Core e Edge.
 
 ## Operacao padronizada
 
