@@ -36,6 +36,9 @@ O vinculo recomendado entre eles e por `git submodule`, nao por fork.
 
 ## Documentacao
 
+- geral do workspace: [docs/README.md](docs/README.md)
+- manual do usuario geral: [docs/manual-usuario/README.md](docs/manual-usuario/README.md)
+- cenarios de teste integrados: [docs/cenarios-teste/README.md](docs/cenarios-teste/README.md)
 - Core: [VEREDAS-Core/docs/README.md](VEREDAS-Core/docs/README.md)
 - Edge: [VEREDAS-Edge/docs/README.md](VEREDAS-Edge/docs/README.md)
 
