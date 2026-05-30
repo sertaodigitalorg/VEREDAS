@@ -34,6 +34,11 @@ O vinculo recomendado entre eles e por `git submodule`, nao por fork.
 - evolucoes proprias do Edge devem ser commitadas e publicadas em `VEREDAS-Edge`;
 - o repositorio `VEREDAS` versiona o ponteiro exato de cada submodulo, alem de scripts e documentacao compartilhada.
 
+## Documentacao
+
+- Core: [VEREDAS-Core/docs/README.md](VEREDAS-Core/docs/README.md)
+- Edge: [VEREDAS-Edge/docs/README.md](VEREDAS-Edge/docs/README.md)
+
 ## Operacao padronizada
 
 O fluxo padrao passa sempre pelo WSL com Docker. Os `docker compose` das duas stacks sao independentes e cada stack possui seu proprio `Makefile`.
