@@ -47,19 +47,22 @@ Validar que a Home publica e as paginas publicas relacionadas estao navegaveis, 
 - sem erros visiveis de layout quebrado;
 - logo, titulo principal e texto de contexto visiveis.
 
-## Cenario 2: Navegabilidade dos CTAs da Home
+## Cenario 2: Navegabilidade deslogado (CTAs + menu publico)
 
 ### Passos
 
 1. Clicar em `Comunicados internos`.
-2. Voltar e clicar em `Entrar no painel` (validar redirecionamento esperado para autenticacao quando nao logado).
-3. Clicar em `Hub de modulos`.
-4. Clicar em `IA embarcada` (validar comportamento de acesso autenticado quando aplicavel).
+2. Voltar e clicar em `Entrar no painel` estando deslogado.
+3. Validar o menu publico deslogado (item `Modulos` apontando para `/pt_BR/modules`).
+4. Validar o menu publico deslogado (item `Login` visivel e funcional).
+5. Clicar em `Hub de modulos`.
+6. Clicar em `IA embarcada` (validar comportamento de acesso autenticado quando aplicavel).
 
 ### Resultado esperado
 
 - cada CTA abre rota valida;
-- quando protegido, o fluxo redireciona para login sem erro 500/404;
+- no passo 2, `Entrar no painel` redireciona para pagina de login sem erro 500/404;
+- menu publico deslogado apresenta `Modulos`, `Pesquisar` e `Login` com comportamento correto;
 - botao de retorno do navegador funciona normalmente.
 
 ## Cenario 3: Hub publico de modulos
@@ -105,12 +108,35 @@ Validar que a Home publica e as paginas publicas relacionadas estao navegaveis, 
 - sem inconsistencias por cache no browser;
 - sem erros de internacionalizacao no prefixo `pt_BR`.
 
+## Cenario 6: Navegabilidade logado (menu e acessos autenticados)
+
+### Passos
+
+1. Acessar `http://localhost:8000/pt_BR/login`.
+2. Entrar com usuario de teste com perfil admin (ex.: `jane_admin / kitten`).
+3. Validar mudancas no menu apos login:
+   - `Login` deixa de aparecer;
+   - menu de usuario fica visivel;
+   - acesso a `Entrar no painel` nao redireciona para login.
+4. Navegar no menu logado: Avisos -> Modulos -> Painel.
+5. Testar `IA embarcada` com sessao autenticada e validar carregamento da tela.
+
+### Resultado esperado
+
+- menu muda corretamente entre estado deslogado e logado;
+- rotas protegidas abrem com sessao valida;
+- dropdown/menu de usuario funciona sem quebra de layout;
+- navegacao logada mantem consistencia entre paginas publicas e administrativas.
+
 ## Checklist de aprovacao
 
 - home publica acessivel e estavel;
 - links da home validados como funcionais;
+- redirecionamento para login validado em estado deslogado;
+- menu publico deslogado validado (`Modulos`, `Pesquisar`, `Login`);
 - hub publico de modulos acessivel;
 - paginas publicas de Educacao e Saude navegaveis;
+- navegabilidade logado validada para menu e acessos protegidos;
 - sem erro 404/500 nos caminhos publicos testados;
 - conteudo funcional compreensivel para publico nao tecnico.
 
