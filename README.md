@@ -1,17 +1,19 @@
 # VEREDAS Workspace
 
-Workspace operacional do VEREDAS com duas stacks Docker independentes rodando no WSL:
+Workspace operacional do VEREDAS com tres stacks Docker independentes rodando no WSL:
 
 - `VEREDAS-Core`: Core central com Symfony, Angular admin, PostgreSQL, Redis, MQTT e pgAdmin;
-- `VEREDAS-Edge`: Edge embarcado com `local-api`, PWAs operacionais, MQTT e SQLite embarcado.
+- `VEREDAS-Edge`: Edge embarcado com `local-api`, MQTT e SQLite embarcado;
+- `VEREDAS-PWA`: repositorio Angular dedicado ao hub e PWAs independentes (aluno, motorista, monitor, paciente) com resolucao `edge-first` e fallback no Core web.
 
 ## Modelo de repositorios
 
-O workspace passa a trabalhar com tres repositorios relacionados:
+O workspace passa a trabalhar com quatro repositorios relacionados:
 
 - `VEREDAS`: repositorio principal de desenvolvimento integrado, documentacao compartilhada, scripts e ponteiros para os submodulos;
 - `VEREDAS-Core`: repositorio independente do Core, clonavel sozinho para servidor, API e administracao central;
-- `VEREDAS-Edge`: repositorio independente do Edge, clonavel sozinho para dispositivo embarcado e testes offline.
+- `VEREDAS-Edge`: repositorio independente do Edge, clonavel sozinho para dispositivo embarcado e testes offline;
+- `VEREDAS-PWA`: repositorio independente do frontend Angular/PWA, em `https://github.com/sertaodigitalorg/VEREDAS-PWA.git`.
 
 O vinculo recomendado entre eles e por `git submodule`, nao por fork.
 
@@ -19,7 +21,8 @@ O vinculo recomendado entre eles e por `git submodule`, nao por fork.
 
 - desenvolvimento integrado: clonar `VEREDAS` com seus submodulos;
 - deploy ou teste apenas do Core: clonar somente `VEREDAS-Core`;
-- deploy ou teste apenas do Edge: clonar somente `VEREDAS-Edge`.
+- deploy ou teste apenas do Edge: clonar somente `VEREDAS-Edge`;
+- deploy ou teste apenas de frontend/PWA: clonar somente `VEREDAS-PWA`.
 
 ### Clonagem recomendada
 
@@ -27,11 +30,13 @@ O vinculo recomendado entre eles e por `git submodule`, nao por fork.
 - baixar submodulos depois: `git submodule update --init --recursive`
 - somente Core: `git clone https://github.com/sertaodigitalorg/VEREDAS-Core.git`
 - somente Edge: `git clone https://github.com/sertaodigitalorg/VEREDAS-Edge.git`
+- somente PWA: `git clone https://github.com/sertaodigitalorg/VEREDAS-PWA.git`
 
 ### Fluxo de manutencao
 
 - evolucoes proprias do Core devem ser commitadas e publicadas em `VEREDAS-Core`;
 - evolucoes proprias do Edge devem ser commitadas e publicadas em `VEREDAS-Edge`;
+- evolucoes proprias do PWA devem ser commitadas e publicadas em `VEREDAS-PWA`;
 - o repositorio `VEREDAS` versiona o ponteiro exato de cada submodulo, alem de scripts e documentacao compartilhada.
 
 ## Documentacao
@@ -43,6 +48,7 @@ O vinculo recomendado entre eles e por `git submodule`, nao por fork.
 - manual do operador funcional: [docs/manual-operador-funcional.md](docs/manual-operador-funcional.md)
 - manual de suporte tecnico: [docs/manual-suporte-tecnico.md](docs/manual-suporte-tecnico.md)
 - matriz de implantacao tecnica: [docs/matriz-implantacao-tecnica.md](docs/matriz-implantacao-tecnica.md)
+- projeto VEREDAS-PWA: [VEREDAS-PWA/README.md](VEREDAS-PWA/README.md)
 - cenarios de teste integrados: [docs/cenarios-teste.md](docs/cenarios-teste.md)
 - Core: [VEREDAS-Core/docs/README.md](https://github.com/sertaodigitalorg/VEREDAS-Core/blob/main/docs/README.md)
 - Edge: [VEREDAS-Edge/docs/README.md](https://github.com/sertaodigitalorg/VEREDAS-Edge/blob/main/docs/README.md)
@@ -51,13 +57,14 @@ Esta documentacao compartilhada cobre o que vale para o ecossistema como um todo
 
 ## Operacao padronizada
 
-O fluxo padrao passa sempre pelo WSL com Docker. Os `docker compose` das duas stacks sao independentes e cada stack possui seu proprio `Makefile`.
+O fluxo padrao passa sempre pelo WSL com Docker. Os `docker compose` das tres stacks sao independentes e cada stack possui seu proprio `Makefile`.
 
 ### Makefiles
 
 - raiz: `c:/VEREDAS/Makefile`
 - Core: `c:/VEREDAS/VEREDAS-Core/Makefile`
 - Edge: `c:/VEREDAS/VEREDAS-Edge/Makefile`
+- PWA: `c:/VEREDAS/VEREDAS-PWA/Makefile`
 
 ### Alvos principais
 
@@ -68,10 +75,12 @@ O fluxo padrao passa sempre pelo WSL com Docker. Os `docker compose` das duas st
 
 Na raiz do workspace:
 
-- `make up-all`: sobe Core e Edge;
-- `make down-all`: derruba Edge e Core;
-- `make status-all`: mostra o estado das duas stacks;
-- `make logs-all`: mostra logs das duas stacks.
+- `make up-all`: sobe Core, Edge e VEREDAS-PWA;
+- `make down-all`: derruba VEREDAS-PWA, Edge e Core;
+- `make status-all`: mostra o estado das tres stacks;
+- `make logs-all`: mostra logs das tres stacks;
+- `make up-pwa`: sobe apenas a stack VEREDAS-PWA;
+- `make down-pwa`: derruba apenas a stack VEREDAS-PWA.
 
 ## Scripts WSL
 

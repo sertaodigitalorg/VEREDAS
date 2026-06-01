@@ -1,0 +1,34 @@
+<main class="shell">
+  <section class="hero">
+    <p class="eyebrow">VEREDAS-PWA</p>
+    <h1>Hub Angular de PWAs independentes</h1>
+    <p class="subtitle">Edge-first com fallback para Core web.</p>
+  </section>
+
+  <section class="panel" *ngIf="loading()">Carregando estado do hub...</section>
+  <section class="panel panel-error" *ngIf="error() as message">{{ message }}</section>
+
+  <ng-container *ngIf="status() as hub">
+    <section class="panel badges">
+      <span class="badge" [class.ok]="hub.edgeAvailable" [class.warn]="!hub.edgeAvailable">
+        Edge {{ hub.edgeAvailable ? 'disponivel' : 'indisponivel' }}
+      </span>
+      <span class="badge" [class.ok]="hub.webAvailable" [class.warn]="!hub.webAvailable">
+        Core web {{ hub.webAvailable ? 'disponivel' : 'indisponivel' }}
+      </span>
+      <span class="badge neutral">{{ hub.strategy }}</span>
+    </section>
+
+    <section class="panel cards">
+      <article class="card" *ngFor="let item of hub.items">
+        <p class="card-eyebrow">{{ item.role }}</p>
+        <h2>{{ roleLabel(item.role) }}</h2>
+        <p>{{ item.description }}</p>
+        <div class="actions">
+          <a [href]="appUrl(item.role)" target="_blank" rel="noreferrer">Abrir app</a>
+          <a [href]="item.webContext" target="_blank" rel="noreferrer" class="secondary">Contexto web</a>
+        </div>
+      </article>
+    </section>
+  </ng-container>
+</main>
