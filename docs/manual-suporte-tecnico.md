@@ -1,53 +1,54 @@
-# Manual de Suporte Tecnico do VEREDAS
+# Manual de Suporte Técnico do VEREDAS
+
+> **MASTER:** GitHub / Técnico  
+> **Documentação funcional relacionada:** Google Drive
 
 ## Objetivo
 
-Orientar implantacao, subida, validacao tecnica, criacao de usuarios, diagnostico inicial e sustentacao operacional do workspace VEREDAS em ambiente local com WSL e Docker.
+Orientar implantação, subida, validação técnica, criação de usuários, diagnóstico inicial e sustentação operacional do workspace VEREDAS em ambiente local com WSL e Docker.
 
 ## Perfil indicado
 
-- suporte tecnico;
+- suporte técnico;
 - implantador;
-- responsavel por infraestrutura local;
-- analista de sustentacao.
+- responsável por infraestrutura local;
+- analista de sustentação.
 
 ## O que este manual cobre
 
-- instalacao do zero;
+- instalação do zero;
 - subida das stacks Core e Edge;
-- validacao tecnica do ambiente;
-- recuperacao inicial em caso de falha;
-- criacao e manutencao de usuarios;
+- validação técnica do ambiente;
+- recuperação inicial em caso de falha;
+- criação e manutenção de usuários;
 - handoff para operadores funcionais.
 
-Para registrar a execucao tecnica de forma padronizada, use [matriz-implantacao-tecnica.md](matriz-implantacao-tecnica.md).
+Para registrar a execução técnica de forma padronizada, use [matriz-implantacao-tecnica.md](matriz-implantacao-tecnica.md).
 
-## Pre-requisitos tecnicos
+## Pré-requisitos técnicos
 
-Antes da instalacao, confirme:
+Antes da instalação, confirme:
 
 1. Windows com WSL habilitado.
-2. Docker Desktop com integracao WSL ativa.
+2. Docker Desktop com integração WSL ativa.
 3. Git instalado.
 4. `make` funcional no WSL.
 5. Portas `8000`, `9080`, `4300`, `4301` e `4302` livres.
 
-## Instalacao do zero
-
-### Clonar o workspace completo
+## Instalação do zero
 
 ```bash
 git clone --recurse-submodules https://github.com/sertaodigitalorg/VEREDAS.git
 cd VEREDAS
 ```
 
-Se necessario inicializar os submodulos depois:
+Se necessário inicializar os submódulos depois:
 
 ```bash
 git submodule update --init --recursive
 ```
 
-## Subida padrao das stacks
+## Subida padrão das stacks
 
 No WSL, a partir de `/mnt/c/VEREDAS`:
 
@@ -73,7 +74,7 @@ Para derrubar tudo:
 make down-all
 ```
 
-## Validacao tecnica inicial
+## Validação técnica inicial
 
 Depois da subida, validar:
 
@@ -84,7 +85,7 @@ Depois da subida, validar:
 5. PWA monitor em `http://localhost:4301`
 6. Edge admin em `http://localhost:4302`
 
-## Operacao por stack
+## Operação por stack
 
 ### Core
 
@@ -112,7 +113,7 @@ Dentro de `VEREDAS-Edge`:
 - `make up-pwa-monitor`
 - `make up-edge-admin`
 
-## Usuarios iniciais e transicao para producao funcional
+## Usuários iniciais e transição para produção funcional
 
 ### Credenciais demo
 
@@ -122,7 +123,7 @@ O Core sobe com:
 - `tom_admin / kitten`
 - `john_user / kitten`
 
-### Criar usuarios definitivos
+### Criar usuários definitivos
 
 No Core, criar um novo administrador:
 
@@ -131,7 +132,7 @@ cd /mnt/c/VEREDAS/VEREDAS-Core
 docker compose exec core-web php bin/console app:add-user operador_core SenhaSegura123 operador@prefeitura.gov.br "Operador Core" --admin
 ```
 
-Criar usuario comum:
+Criar usuário comum:
 
 ```bash
 cd /mnt/c/VEREDAS/VEREDAS-Core
@@ -142,36 +143,33 @@ docker compose exec core-web php bin/console app:add-user usuario_base SenhaSegu
 
 Antes de entregar o ambiente ao operador:
 
-1. confirmar login com o usuario definitivo;
+1. confirmar login com o usuário definitivo;
 2. orientar troca de senha no primeiro acesso;
-3. confirmar abertura dos hubs de Educacao, Saude e Base Operacional.
+3. confirmar abertura dos hubs de Educação, Saúde e Base Operacional;
+4. encaminhar o operador aos manuais funcionais oficiais no Google Drive.
 
 ## Troubleshooting inicial
 
-### Core nao responde
+### Core não responde
 
 1. Executar `make -C /mnt/c/VEREDAS/VEREDAS-Core status`
 2. Executar `make -C /mnt/c/VEREDAS/VEREDAS-Core logs`
 3. Recriar o `core-web` com `make -C /mnt/c/VEREDAS/VEREDAS-Core up-core-web`
 
-### Edge nao responde
+### Edge não responde
 
 1. Executar `make -C /mnt/c/VEREDAS/VEREDAS-Edge status`
 2. Executar `make -C /mnt/c/VEREDAS/VEREDAS-Edge logs`
-3. Subir o servico afetado com o alvo especifico do Makefile.
+3. Subir o serviço afetado com o alvo específico do Makefile.
 
 ### Falta de dados demo no Core
-
-No Core:
 
 ```bash
 cd /mnt/c/VEREDAS/VEREDAS-Core
 make fixtures-load
 ```
 
-### Alteracao de entidade ou schema desatualizado
-
-No Core:
+### Alteração de entidade ou schema desatualizado
 
 ```bash
 cd /mnt/c/VEREDAS/VEREDAS-Core
@@ -180,39 +178,41 @@ make schema-update
 
 ### Cache Symfony desatualizado
 
-No Core:
-
 ```bash
 cd /mnt/c/VEREDAS/VEREDAS-Core
 make cache-clear
 ```
 
-## Sequencia recomendada de implantacao
+## Sequência recomendada de implantação
 
 1. Clonar o workspace.
-2. Inicializar submodulos.
+2. Inicializar submódulos.
 3. Subir Core e Edge.
 4. Validar os endpoints de health.
-5. Confirmar login com usuario demo.
-6. Criar usuarios definitivos quando necessario.
+5. Confirmar login com usuário demo.
+6. Criar usuários definitivos quando necessário.
 7. Entregar o ambiente ao operador funcional.
-8. Solicitar execucao dos roteiros de Educacao e Saude.
-9. Recolher evidencias e tratar falhas apontadas.
+8. Solicitar execução dos roteiros de Educação e Saúde.
+9. Recolher evidências e tratar falhas apontadas.
 
-## Entrega para validacao funcional
+## Entrega para validação funcional
 
-Quando o ambiente estiver pronto, encaminhar o operador para:
+A documentação funcional oficial está no Google Drive:
 
-1. [manual-operador-funcional.md](manual-operador-funcional.md)
-2. [cenarios-teste/educacao-core-edge.md](cenarios-teste/educacao-core-edge.md)
-3. [cenarios-teste/saude-e-modulos.md](cenarios-teste/saude-e-modulos.md)
-4. [matriz-teste-funcional.md](matriz-teste-funcional.md)
+1. [Manual do Usuário](https://docs.google.com/document/d/1Qz5FKruMFAfu6XgFbEFeb5F335fozN1o8owqgW0hWEY/edit)
+2. [Manual do Operador Funcional](https://docs.google.com/document/d/1iEV7CaIQ7bvXc1xUtzO_zu9ZYvmywi8S6sPZuIxVytg/edit)
+3. [Pasta de Manuais de Usuário do VEREDAS](https://drive.google.com/drive/folders/1zhqUM-DPXSdPqYs_dhIvPbp69KXHxWmJ)
 
-## Referencias
+Os roteiros de teste técnico-funcional continuam versionados neste repositório enquanto não forem reclassificados pela governança documental.
 
-1. Indice geral: [manual-usuario.md](manual-usuario.md)
-2. Operacao do workspace: [operacao.md](operacao.md)
-3. README principal: [../README.md](../README.md)
-4. Core: [VEREDAS-Core/README.md](https://github.com/sertaodigitalorg/VEREDAS-Core/blob/main/README.md)
-5. Edge: [VEREDAS-Edge/README.md](https://github.com/sertaodigitalorg/VEREDAS-Edge/blob/main/README.md)
-6. Matriz tecnica: [matriz-implantacao-tecnica.md](matriz-implantacao-tecnica.md)
+## Referências técnicas
+
+1. [Operação do workspace](operacao.md)
+2. [README principal](../README.md)
+3. [Core](https://github.com/sertaodigitalorg/VEREDAS-Core/blob/main/README.md)
+4. [Edge](https://github.com/sertaodigitalorg/VEREDAS-Edge/blob/main/README.md)
+5. [Matriz técnica](matriz-implantacao-tecnica.md)
+
+## Cross-Layer Impact Check
+
+Alterações técnicas que modifiquem comportamento percebido por gestores ou operadores devem provocar revisão dos manuais funcionais no Google Drive. Se a atualização direta não for possível, registrar `PENDING_SYNC` e gerar Prompt Handoff.
